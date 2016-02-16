@@ -13,8 +13,6 @@ void fileread(const char* filepath,vector<string>* instr){
 	    boost::split(*instr,str,boost::is_any_of("||"));
 }
 
-
-
 string passGen(){
 	
 	char s[]="qQwWeErRtTyYuUiIoOpPaAsSdDfFgGhHjJkKlLzZxXcCvVbBnNmM1234567890!@#";		
@@ -55,7 +53,7 @@ void help(){
 				<<"flag description:"<<endl
 				<<"flag -I enter input file text data  "<<endl
 				<<"file structure is "<<endl
-				<<"Full name - department -"<<endl
+				<<"Full name - department -||"<<endl
 				<<"flag -O if you want to customize output file name"<<endl
 				<<"flag -S generated single password"<<endl;
 }
