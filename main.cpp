@@ -15,8 +15,9 @@ void fileread(const char* filepath,vector<string>* instr){
 
 
 
-string passGen(char* s){
+string passGen(){
 	
+	char s[]="qQwWeErRtTyYuUiIoOpPaAsSdDfFgGhHjJkKlLzZxXcCvVbBnNmM1234567890!@#";		
 	string pass;
 	for(int i=0;i<12;i++){
 		int gen=rand()%65;
@@ -35,32 +36,31 @@ void filewrite(const char* filepath,vector<string>* out){
 		}
 }
 
+void generator(const char* filepath){
+	
+			vector<string> instr;
+			vector<string> outstr;
+			fileread(filepath,&instr);
+			for(size_t i=0;i<instr.size();i++){
+				if(instr.at(i)!=""){
+				                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+				outstr.push_back(instr.at(i)+passGen());
+				}
+			}
+			filewrite("out.txt",&outstr);
+			
+}
+
 int main(int argc, char* argv[]) {
 	
 
 
-	char s[]="qQwWeErRtTyYuUiIoOpPaAsSdDfFgGhHjJkKlLzZxXcCvVbBnNmM1234567890!@#";
+		
 		srand(time(NULL));
 
 		if(argc>1){
-			vector<string> instr;
-			vector<string> outstr;
-			fileread(argv[1],&instr);
-			for(size_t i=0;i<instr.size();i++){
-				if(instr.at(i)!=""){
-				
-					string out=instr.at(i);
-					string buf;
-					buf=passGen(s);					
-				
-					cout<<buf<<endl;
-					out.append(buf);
-					buf.clear();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-				outstr.push_back(out);
-				}
-			}
-			filewrite("out.txt",&outstr);
+			
+				generator(argv[1]);	
 		}
 
 
